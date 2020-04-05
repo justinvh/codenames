@@ -1,0 +1,15 @@
+scratchpad
+.vscode
+.python-version
+*.code-workspace
+.coverage
+node_modules/
+dist/
+package-lock.json
+*.ipynb
+.ipynb_checkpoints/
+.env
+.pytest_cache
+.~lock.*
+notes/
+.vscode

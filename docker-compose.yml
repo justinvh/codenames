@@ -1,0 +1,46 @@
+version: '3.3'
+
+services:
+
+  nginx:
+    container_name: nginx
+    build:
+      context: .
+      dockerfile: nginx/dev/Dockerfile
+    ports:
+      - "9876:80"
+    depends_on:
+      - frontend
+      - peerserver
+    volumes:
+      - ./nginx/dev/dev.conf:/etc/nginx/nginx.conf:ro
+    networks:
+      - main
+
+  peerserver:
+    image: peerjs/peerjs-server
+    ports:
+      - "9000:9000"
+    networks:
+      - main
+
+  frontend:
+    container_name: frontend
+    build:
+      context: frontend
+    networks:
+      - main
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./frontend:/app/:rw
+    environment:
+      - SITE_NAME=${SITE_NAME}
+      - PEERJS_HOST=${PEERJS_HOST}
+      - PEERJS_PORT=${PEERJS_PORT}
+      - PEERJS_PATH=${PEERJS_PATH}
+    restart: "no"
+
+networks:
+  main:
+    driver: "bridge"

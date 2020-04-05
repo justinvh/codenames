@@ -1,0 +1,116 @@
+svg {
+  width: 100%;
+  color: #FFF;
+}
+
+.wins {
+  animation: blinking 1.2s infinite;
+}
+
+@keyframes blinking {
+  0% {
+    color: white;
+  }
+
+  49% {
+    color: white;
+  }
+
+  60% {
+    color: transparent;
+  }
+
+  99% {
+    color: transparent;
+  }
+
+  100% {
+    color: white;
+  }
+}
+
+.redTeam.wins,
+.redTeam.turn {
+  background-color: hsl(0, 61%, 47%);
+  color: white !important;
+}
+
+.blueTeam.wins,
+.blueTeam.turn {
+  background-color: hsl(198, 52%, 37%);
+  color: white !important;
+}
+
+
+.blank {
+  background-color: hsl(0, 0%, 25%);
+}
+
+:not(.spy).red {
+  background-color: hsl(0, 61%, 47%);
+}
+
+:not(.spy).blue {
+  background-color: hsl(198, 52%, 37%);
+}
+
+:not(.spy).bystanders {
+  background-color: hsl(0, 0%, 50%);
+}
+
+:not(.spy).assassin {
+  background-color: hsl(0, 0%, 0%);
+}
+
+.spy {
+  background-color: hsl(0, 0%, 25%);
+}
+
+.spy.assassin text {
+  fill: hsl(0, 0%, 0%);
+}
+
+.spy.red text {
+  fill: hsl(0, 61%, 47%);
+}
+
+.spy.blue text {
+  fill: hsl(198, 82%, 47%);
+}
+
+.spy.bystanders text {
+  fill: hsl(0, 0%, 50%);
+}
+
+.gameTabs {
+  width: 100%;
+  height: 92vh;
+}
+
+.board {
+  width: 100%;
+  height: calc(100vh - 120px);
+  background-color: #222;
+  user-select: none;
+  overflow: hidden;
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+}
+
+.card-text {
+  pointer-events: none;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%)
+}
